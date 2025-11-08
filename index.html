@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>My LaTeX‑style Site</title>
+    <meta name="description" content="A minimal site styled like LaTeX using LaTeX.css." />
+
+    <!-- LaTeX.css core -->
+    <link rel="stylesheet" href="https://latex.vercel.app/style.css" />
+
+    <!-- Optional: Prism (LaTeX-like code highlighting) -->
+    <link rel="stylesheet" href="https://latex.vercel.app/prism/prism.css" />
+
+    <!-- Optional: your custom tweaks -->
+    <link rel="stylesheet" href="./assets/styles.css" />
+
+    <!-- Optional: MathJax for LaTeX math -->
+    <script id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  </head>
+  <body class="text-justify indent-pars" data-pagefind-body>
+    <header>
+      <h1>LaTeX.css Starter</h1>
+      <p class="author">Your Name<br/><time>November 8, 2025</time></p>
+      <div class="toolbar no-print">
+        <button id="dark-mode-toggle" title="Toggle dark mode">Toggle dark mode</button>
+        <button id="font-toggle" title="Toggle Libertinus">Toggle font</button>
+      </div>
+      <div class="abstract">
+        <h2>Abstract</h2>
+        <p>
+          This minimal project shows how to build a site that looks like a LaTeX document
+          using <a href="https://github.com/vincentdoerig/latex-css">LaTeX.css</a>.
+          It demonstrates author/abstract, theorems, definitions, proofs, sidenotes,
+          tables with custom borders and alignment, dark mode, MathJax equations, and Prism code highlighting.
+        </p>
+      </div>
+    </header>
+
+    <nav>
+      <h2>Contents</h2>
+      <ol>
+        <li><a href="#getting-started">Getting Started</a></li>
+        <li><a href="#math">Math &amp; Theorems</a></li>
+        <li><a href="#sidenotes">Sidenotes</a></li>
+        <li><a href="#tables">Tables</a></li>
+        <li><a href="#code">Code Highlighting</a></li>
+        <li><a href="#dark-mode">Dark Mode &amp; Typeface</a></li>
+        <li><a href="#i18n">Language Labels</a></li>
+      </ol>
+    </nav>
+
+    <article id="getting-started">
+      <h2>Getting Started</h2>
+      <p>
+        Include LaTeX.css via CDN:
+      </p>
+<pre><code class="language-html">&lt;link rel="stylesheet" href="https://latex.vercel.app/style.css"&gt;</code></pre>
+      <p class="no-indent">
+        Optionally add MathJax and Prism (see <code>&lt;head&gt;</code> of this page), and toggle dark mode with the button above.
+      </p>
+    </article>
+
+    <article id="math">
+      <h2>Math &amp; Theorems</h2>
+      <p>
+        Inline math like \( e^{i\pi} + 1 = 0 \) and display math:
+      </p>
+      <p>$$
+        \int_{-\infty}^{\infty} e^{-x^2}\,dx = \sqrt{\pi}.
+      $$</p>
+
+      <div class="theorem">
+        <strong>Theorem.</strong> The set of real numbers is uncountable.
+      </div>
+
+      <div class="lemma">
+        <strong>Lemma.</strong> The sum of two even integers is even.
+      </div>
+
+      <div class="definition">
+        <strong>Definition.</strong> A <em>bijection</em> is a one-to-one and onto function.
+      </div>
+
+      <div class="proof">
+        <strong>Proof.</strong> (Sketch) Consider Cantor’s diagonal argument… \(\square\)
+      </div>
+    </article>
+
+    <article id="sidenotes">
+      <h2>Sidenotes</h2>
+      <p>
+        Sidenotes appear in the margin on large screens and inline on mobile.
+        <label for="sn-1" class="sidenote-toggle sidenote-number"></label>
+        <input type="checkbox" id="sn-1" class="sidenote-toggle" />
+        <span class="sidenote">Hello! I’m a sidenote. On mobile I appear inline.</span>
+      </p>
+      <p>
+        You can also place a left sidenote.
+        <label for="sn-2" class="sidenote-toggle sidenote-number"></label>
+        <input type="checkbox" id="sn-2" class="sidenote-toggle" />
+        <span class="sidenote left">I’m aligned to the left margin on wide screens.</span>
+      </p>
+    </article>
+
+    <article id="tables">
+      <h2>Tables</h2>
+
+      <figure>
+        <figcaption>A sample table with custom borders and alignment.</figcaption>
+        <div class="scroll-wrapper">
+          <table class="borders-custom col-1-l col-2-c col-3-r">
+            <tr class="border-bottom-thick"><th>Item</th><th>Description</th><th>Price ($)</th></tr>
+            <tr class="border-bottom-thin"><td>Gnat</td><td>per gram</td><td>13.65</td></tr>
+            <tr class="border-bottom-thin"><td>Gnu</td><td>stuffed</td><td>92.50</td></tr>
+            <tr><td>Armadillo</td><td>frozen</td><td>8.99</td></tr>
+          </table>
+        </div>
+      </figure>
+    </article>
+
+    <article id="code">
+      <h2>Code Highlighting</h2>
+<pre><code class="language-javascript">
+function hello(name) {
+  console.log(`Hello, ${name}!`);
+}
+hello("world");
+</code></pre>
+    </article>
+
+    <article id="dark-mode">
+      <h2>Dark Mode &amp; Typeface</h2>
+      <p>
+        Click the buttons in the header to toggle dark mode (adds/removes <code>latex-dark</code> on <code>&lt;body&gt;</code>)
+        and to switch between Latin Modern and Libertinus (toggles <code>libertinus</code> on <code>&lt;body&gt;</code>).
+      </p>
+    </article>
+
+    <article id="i18n">
+      <h2>Language Labels</h2>
+      <p>
+        To change theorem/definition labels to Spanish, add this line in the head and set <code>lang="es"</code> on <code>&lt;html&gt;</code>:
+      </p>
+<pre><code class="language-html">&lt;link rel="stylesheet" href="https://latex.vercel.app/lang/es.css" /&gt;</code></pre>
+    </article>
+
+    <footer>
+      <hr/>
+      <p>Built with <a href="https://latex.vercel.app/">LaTeX.css</a>. Customize via <code>assets/styles.css</code>.</p>
+    </footer>
+
+    <!-- Prism core -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js"></script>
+    <!-- Optional: add specific language components if needed -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-javascript.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-markup.min.js"></script>
+
+    <!-- Your small JS -->
+    <script src="./assets/main.js"></script>
+  </body>
+</html>

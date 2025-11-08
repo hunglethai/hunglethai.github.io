@@ -1,0 +1,7 @@
+/* Small custom tweaks without fighting LaTeX.css */
+.toolbar { display:flex; gap: .5rem; margin: .75rem 0 1rem; }
+.toolbar button { cursor: pointer; }
+.scroll-wrapper { overflow-x: auto; }
+@media print {
+  .no-print { display:none !important; }
+}
